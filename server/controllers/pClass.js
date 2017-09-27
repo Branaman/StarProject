@@ -1,9 +1,9 @@
 var mongoose = require('mongoose')
-var Alignment = mongoose.model('alignment')
+var PClass = mongoose.model('pClass')
 
 module.exports = {
   index: function(req, res){
-    Alignment.find({}, function (err,data){
+    PClass.find({}, function (err,data){
       if (err) {
         res.json (err);
         return;
@@ -12,17 +12,17 @@ module.exports = {
     });
   },
   show: function(req,res){
-      Alignment.findOne({_id:req.params.id}, function(err, alignment){
+      PClass.findOne({_id:req.params.id}, function(err, pClass){
           if (err) {
             res.json (err);
             return;
           }
-          res.json(alignment);
+          res.json(pClass);
       });
   },
   create: function(req, res){
-    var alignment = new Alignment(req.body);
-    alignment.save(function (err, data){
+    var pClass = new PClass(req.body);
+    pClass.save(function (err, data){
       if (err) {
         res.json(err);
         return;
@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   destroy: function(req, res) {
-    Alignment.remove({_id:req.params.id}, function(err, data){
+    PClass.remove({_id:req.params.id}, function(err, data){
       if (err) {
         res.json (err);
         return;
@@ -40,7 +40,7 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Alignment.update({_id:req.params.id}, req.body, function(err, data){
+    PClass.update({_id:req.params.id}, req.body, function(err, data){
       if (err) {
         res.json (err);
         return;

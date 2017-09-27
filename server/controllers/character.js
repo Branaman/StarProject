@@ -4,10 +4,10 @@ var User = mongoose.model('user')
 
 module.exports = {
   index: function(req, res){
-    var characters = Character.find({})
+    Character.find({})
     .populate('alignment')
     .populate('homeworld')
-    .populate('class')
+    .populate('pClass')
     .populate('race')
     .populate('theme')
     .populate('equipment')
@@ -25,7 +25,7 @@ module.exports = {
     Character.findOne({_id: req.params.id})
     .populate('alignment')
     .populate('homeworld')
-    .populate('class')
+    .populate('pClass')
     .populate('race')
     .populate('theme')
     .populate('equipment')

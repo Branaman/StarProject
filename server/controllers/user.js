@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 
 module.exports = {
   index: function(req, res){
-    var users = User.find({})
+    User.find({})
     .populate('characters')
     .exec(function(err, user) {
       if (err) {

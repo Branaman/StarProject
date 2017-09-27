@@ -8,7 +8,7 @@ var characterSchema= new mongoose.Schema({
     experiencePoints:{type:Number},
     alignment:{required:true, type: mongoose.Schema.ObjectId, ref:'alignment'},
     homeworld:{required:true, type: mongoose.Schema.ObjectId, ref:'planet'},
-    class:{required:true, type: mongoose.Schema.ObjectId, ref:'class'},
+    pClass:{required:true, type: mongoose.Schema.ObjectId, ref:'pClass'},
     race:{required:true, type: mongoose.Schema.ObjectId, ref:'race'},
     theme:{required:true, type: mongoose.Schema.ObjectId, ref:'theme'},
     _user:{required:true, type: mongoose.Schema.ObjectId, ref:'user'},
@@ -23,7 +23,7 @@ var characterSchema= new mongoose.Schema({
     credits:{type:Number},
     equipment:[{type: mongoose.Schema.ObjectId, ref:'equipment'}],
     // knowledge
-    feats:[{type: mongoose.Schema.ObjectId, ref:'feat'}],    
+    feats:[{type: mongoose.Schema.ObjectId, ref:'feat'}],
     proficiencies:[{type: mongoose.Schema.ObjectId, ref:'proficiency'}],
     spellsKnown:[{type: mongoose.Schema.ObjectId, ref:'spell'}],
     // health and resolve

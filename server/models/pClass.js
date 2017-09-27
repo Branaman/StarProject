@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var classSchema= new mongoose.Schema({
+var pClassSchema= new mongoose.Schema({
     id:{type: Number},
     title:{type:String},
     description:{type:String},
@@ -10,4 +10,4 @@ var classSchema= new mongoose.Schema({
     user:{type: String},
   }, { timestamps: { createdAt: 'created_at', updatedAt:'updated_at'}
 });
-mongoose.model('class', classSchema);
+mongoose.model('pClass', pClassSchema);

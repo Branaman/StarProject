@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var alignmentCrontroller = require('../controllers/alignment.js');
 module.exports = (function(app){
-  // alignments
+  // alignments CRUD
   app.get('/alignments', (req, res, next)=>{
     alignmentCrontroller.index(req, res);
   });

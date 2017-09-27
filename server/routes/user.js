@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var userCrontroller = require('../controllers/user.js');
 module.exports = (function(app){
-  // users
+  // users CRUD
   app.post('/users', (req, res, next)=>{
     userCrontroller.create(req, res);
   });

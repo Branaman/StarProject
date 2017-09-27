@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var characterCrontroller = require('../controllers/character.js');
 module.exports = (function(app){
-  // characters
+  // characters CRUD
   app.get('/characters', (req, res, next)=>{
     characterCrontroller.index(req, res);
   });
