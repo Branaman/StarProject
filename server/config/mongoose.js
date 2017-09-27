@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var path = require('path');
 var options = { useMongoClient: true, };
-mongoose.connect('mongodb://localhost/bikeMarket', options);
+mongoose.connect('mongodb://localhost/starProject', options);
 var models_path =path.join( __dirname , '/../models');
 fs.readdirSync(models_path).forEach(function(file) {
   if(file.indexOf('.js') > 0) {
