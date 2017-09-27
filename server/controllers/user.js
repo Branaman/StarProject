@@ -22,7 +22,6 @@ module.exports = {
           res.json (err);
           return;
         }
-        user.password = "hidden";
         res.json(user);
       });
   },
