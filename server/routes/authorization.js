@@ -2,10 +2,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var path = require('path');
 module.exports = (function(app){
-  app.get('*', function(req, res, next){
-    res.locals.user = req.user || null;
-    next();
-  });
   app.post('/login', (req,res,next)=>{
     passport.authenticate('local', function(err, user, info) {
       if (err) { return res.json(err); }
@@ -25,11 +21,5 @@ module.exports = (function(app){
     if (req.user) {
       res.json(true);
     }
-  });
-  app.all("*", (req, res, next) => {
-    if (!req.user) {
-      res.redirect('/');
-    }
-    res.sendFile(path.resolve("./public/dist/index.html"));
   });
 });
