@@ -13,7 +13,6 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 require('./server/config/mongoose.js');
 require('./server/config/passport.js')(passport);
-// require('./server/config/routes.js')(app);
 var routes_path =path.join( __dirname , './server/routes');
 fs.readdirSync(routes_path).forEach(function(file) {
   if(file.indexOf('.js') > 0) {
