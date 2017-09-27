@@ -11,7 +11,7 @@ module.exports = {
         res.json (err);
         return;
       }
-      res.json(data);
+      res.json(user);
     });
   },
   show: function(req,res){
