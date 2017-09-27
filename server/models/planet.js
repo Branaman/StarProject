@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 
 var planetSchema= new mongoose.Schema({
-    id:{type: Number},
     title:{type:String},
     description:{type:String},
-    price:{type:Number},
-    image:{type:String},
+    diameter:{type:Number},
+    mass:{type:Number},
+    gravity:{type:Number},
+    atmosphere:{type:String},
+    day:{type:Number},
+    year:{type:Number},
     location:{type:String},
-    user:{type: String},
+    languages:[{type: mongoose.Schema.ObjectId, ref:'language'}],
   }, { timestamps: { createdAt: 'created_at', updatedAt:'updated_at'}
 });
 mongoose.model('planet', planetSchema);

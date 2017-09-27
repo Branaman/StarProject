@@ -15,15 +15,15 @@ module.exports = {
     });
   },
   show: function(req,res){
-      var users = User.findOne({email:req.params.id})
-      .populate('characters')
-      .exec(function(err, user) {
-        if (err) {
-          res.json (err);
-          return;
-        }
-        res.json(user);
-      });
+    User.findOne({email:req.params.id})
+    .populate('characters')
+    .exec(function(err, user) {
+      if (err) {
+        res.json (err);
+        return;
+      }
+      res.json(user);
+    });
   },
   create: function(req, res){
     var user = new User(req.body);

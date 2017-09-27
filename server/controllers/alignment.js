@@ -12,13 +12,13 @@ module.exports = {
     });
   },
   show: function(req,res){
-      Alignment.findOne({_id:req.params.id}, function(err, alignment){
-          if (err) {
-            res.json (err);
-            return;
-          }
-          res.json(alignment);
-      });
+    Alignment.findOne({_id:req.params.id}, function(err, alignment){
+        if (err) {
+          res.json (err);
+          return;
+        }
+        res.json(alignment);
+    });
   },
   create: function(req, res){
     var alignment = new Alignment(req.body);

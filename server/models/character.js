@@ -21,10 +21,9 @@ var characterSchema= new mongoose.Schema({
     charisma:{type:Number},
     // belongings
     credits:{type:Number},
-    equipment:[{type: mongoose.Schema.ObjectId, ref:'equipment'}],
+    equipment:[{type: mongoose.Schema.ObjectId, ref:'item'}],
     // knowledge
     feats:[{type: mongoose.Schema.ObjectId, ref:'feat'}],
-    proficiencies:[{type: mongoose.Schema.ObjectId, ref:'proficiency'}],
     spellsKnown:[{type: mongoose.Schema.ObjectId, ref:'spell'}],
     // health and resolve
     curHitPoints:{type:Number},

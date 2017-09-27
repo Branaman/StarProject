@@ -12,13 +12,13 @@ module.exports = {
     });
   },
   show: function(req,res){
-      Feat.findOne({_id:req.params.id}, function(err, feat){
-          if (err) {
-            res.json (err);
-            return;
-          }
-          res.json(feat);
-      });
+    Feat.findOne({_id:req.params.id}, function(err, feat){
+        if (err) {
+          res.json (err);
+          return;
+        }
+        res.json(feat);
+    });
   },
   create: function(req, res){
     var feat = new Feat(req.body);

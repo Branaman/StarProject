@@ -1,9 +1,9 @@
 var mongoose = require('mongoose')
-var Equipment = mongoose.model('equipment')
+var Planet = mongoose.model('planet')
 
 module.exports = {
   index: function(req, res){
-    Equipment.find({}, function (err,data){
+    Planet.find({}, function (err,data){
       if (err) {
         res.json (err);
         return;
@@ -12,17 +12,17 @@ module.exports = {
     });
   },
   show: function(req,res){
-      Equipment.findOne({_id:req.params.id}, function(err, equipment){
-          if (err) {
-            res.json (err);
-            return;
-          }
-          res.json(equipment);
-      });
+    Planet.findOne({_id:req.params.id}, function(err, planet){
+        if (err) {
+          res.json (err);
+          return;
+        }
+        res.json(planet);
+    });
   },
   create: function(req, res){
-    var equipment = new Equipment(req.body);
-    equipment.save(function (err, data){
+    var planet = new Planet(req.body);
+    planet.save(function (err, data){
       if (err) {
         res.json(err);
         return;
@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   destroy: function(req, res) {
-    Equipment.remove({_id:req.params.id}, function(err, data){
+    Planet.remove({_id:req.params.id}, function(err, data){
       if (err) {
         res.json (err);
         return;
@@ -40,7 +40,7 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Equipment.update({_id:req.params.id}, req.body, function(err, data){
+    Planet.update({_id:req.params.id}, req.body, function(err, data){
       if (err) {
         res.json (err);
         return;
