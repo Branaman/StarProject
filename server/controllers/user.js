@@ -27,8 +27,8 @@ module.exports = {
       });
   },
   create: function(req, res){
-    var user = new User(req.body);
-    if (req.body.password !== req.body.passwordC){
+    var user = new User(req.query);
+    if (req.query.password !== req.query.passwordC){
       let errors = "Passwords do not match";
       res.json(errors);
     }else{
