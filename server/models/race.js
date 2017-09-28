@@ -7,6 +7,7 @@ var raceSchema= new mongoose.Schema({
     weight:{type:Number},
     maturity:{type:Number},
     maxAge:{type:Number},
+    size:{type:Number},
     hitPoints:{type:Number},
     bonuses:[
       {stat:{type:String},bonus:{type:Number},}

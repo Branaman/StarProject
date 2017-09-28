@@ -1,12 +1,9 @@
 var mongoose = require('mongoose')
-var ItemType = mongoose.model('itemType')
+var WeaponType = mongoose.model('weaponType')
 
 module.exports = {
   index: function(req, res){
-    ItemType.find({})
-    .populate('armorType')
-    .populate('weaponType')
-    .exec(function(err, data) {
+    WeaponType.find({}, function (err,data){
       if (err) {
         res.json (err);
         return;
@@ -15,10 +12,7 @@ module.exports = {
     });
   },
   show: function(req,res){
-    ItemType.findOne({_id:req.params.id})
-    .populate('armorType')
-    .populate('weaponType')
-    .exec(function(err, data){
+    WeaponType.findOne({_id:req.params.id}, function(err, data){
         if (err) {
           res.json (err);
           return;
@@ -27,8 +21,8 @@ module.exports = {
     });
   },
   create: function(req, res){
-    var itemType = new ItemType(req.body);
-    itemType.save(function (err, data){
+    var weaponType = new WeaponType(req.body);
+    weaponType.save(function (err, data){
       if (err) {
         res.json(err);
         return;
@@ -37,7 +31,7 @@ module.exports = {
     });
   },
   destroy: function(req, res) {
-    ItemType.remove({_id:req.params.id}, function(err, data){
+    WeaponType.remove({_id:req.params.id}, function(err, data){
       if (err) {
         res.json (err);
         return;
@@ -46,7 +40,7 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    ItemType.update({_id:req.params.id}, req.body, function(err, data){
+    WeaponType.update({_id:req.params.id}, req.body, function(err, data){
       if (err) {
         res.json (err);
         return;

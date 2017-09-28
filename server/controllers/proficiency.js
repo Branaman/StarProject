@@ -1,9 +1,9 @@
 var mongoose = require('mongoose')
-var ItemType = mongoose.model('itemType')
+var Proficiency = mongoose.model('proficiency')
 
 module.exports = {
   index: function(req, res){
-    ItemType.find({})
+    Proficiency.find({})
     .populate('armorType')
     .populate('weaponType')
     .exec(function(err, data) {
@@ -15,7 +15,7 @@ module.exports = {
     });
   },
   show: function(req,res){
-    ItemType.findOne({_id:req.params.id})
+    Proficiency.findOne({_id:req.params.id})
     .populate('armorType')
     .populate('weaponType')
     .exec(function(err, data){
@@ -27,8 +27,8 @@ module.exports = {
     });
   },
   create: function(req, res){
-    var itemType = new ItemType(req.body);
-    itemType.save(function (err, data){
+    var proficiency = new Proficiency(req.body);
+    proficiency.save(function (err, data){
       if (err) {
         res.json(err);
         return;
@@ -37,7 +37,7 @@ module.exports = {
     });
   },
   destroy: function(req, res) {
-    ItemType.remove({_id:req.params.id}, function(err, data){
+    Proficiency.remove({_id:req.params.id}, function(err, data){
       if (err) {
         res.json (err);
         return;
@@ -46,7 +46,7 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    ItemType.update({_id:req.params.id}, req.body, function(err, data){
+    Proficiency.update({_id:req.params.id}, req.body, function(err, data){
       if (err) {
         res.json (err);
         return;
