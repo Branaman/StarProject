@@ -3,7 +3,9 @@ var Item = mongoose.model('item')
 
 module.exports = {
   index: function(req, res){
-    Item.find({}, function (err,data){
+    Item.find({})
+    .populate('itemType')
+    .exec(function(err, data) {
       if (err) {
         res.json (err);
         return;
@@ -12,7 +14,9 @@ module.exports = {
     });
   },
   show: function(req,res){
-    Item.findOne({_id:req.params.id}, function(err, item){
+    Item.findOne({_id:req.params.id})
+    .populate('itemType')
+    .exec(function(err, data) {
         if (err) {
           res.json (err);
           return;

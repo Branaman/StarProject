@@ -3,7 +3,10 @@ var Race = mongoose.model('race')
 
 module.exports = {
   index: function(req, res){
-    Race.find({}, function (err,data){
+    Race.find({})
+    .populate('homeworld')
+    .populate('languages')
+    .exec(function(err, data) {
       if (err) {
         res.json (err);
         return;
@@ -12,7 +15,10 @@ module.exports = {
     });
   },
   show: function(req,res){
-    Race.findOne({_id:req.params.id}, function(err, race){
+    Race.findOne({_id:req.params.id})
+    .populate('homeworld')
+    .populate('languages')
+    .exec(function(err, data) {
         if (err) {
           res.json (err);
           return;

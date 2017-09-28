@@ -13,6 +13,7 @@ module.exports = {
     .populate('equipment')
     .populate('spellsKnown')
     .populate('_user')
+    .populate('languages')
     .exec(function(err, data) {
       if (err) {
         res.json (err);
@@ -30,6 +31,7 @@ module.exports = {
     .populate('theme')
     .populate('equipment')
     .populate('spellsKnown')
+    .populate('languages')
     .populate('_user')
     .exec(function(err, character) {
         if (err) {

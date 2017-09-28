@@ -6,6 +6,7 @@ var characterSchema= new mongoose.Schema({
     description:{type:String},
     level:{type:Number},
     experiencePoints:{type:Number},
+    languages:[{type: mongoose.Schema.ObjectId, ref:'language'}],
     alignment:{required:true, type: mongoose.Schema.ObjectId, ref:'alignment'},
     homeworld:{required:true, type: mongoose.Schema.ObjectId, ref:'planet'},
     pClass:{required:true, type: mongoose.Schema.ObjectId, ref:'pClass'},

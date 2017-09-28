@@ -3,7 +3,9 @@ var Spell = mongoose.model('spell')
 
 module.exports = {
   index: function(req, res){
-    Spell.find({}, function (err,data){
+    Spell.find({})
+    .populate('spellSchool')
+    .exec(function(err, data) {
       if (err) {
         res.json (err);
         return;
@@ -12,7 +14,9 @@ module.exports = {
     });
   },
   show: function(req,res){
-    Spell.findOne({_id:req.params.id}, function(err, spell){
+    Spell.findOne({_id:req.params.id})
+    .populate('spellSchool')
+    .exec(function(err, data) {
         if (err) {
           res.json (err);
           return;

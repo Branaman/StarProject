@@ -3,7 +3,9 @@ var Planet = mongoose.model('planet')
 
 module.exports = {
   index: function(req, res){
-    Planet.find({}, function (err,data){
+    Planet.find({})
+    .populate('languages')
+    .exec(function(err, data) {
       if (err) {
         res.json (err);
         return;
@@ -12,7 +14,9 @@ module.exports = {
     });
   },
   show: function(req,res){
-    Planet.findOne({_id:req.params.id}, function(err, planet){
+    Planet.findOne({_id:req.params.id})
+    .populate('languages')
+    .exec(function(err, data) {
         if (err) {
           res.json (err);
           return;
