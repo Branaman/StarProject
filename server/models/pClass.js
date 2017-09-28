@@ -1,13 +1,28 @@
 var mongoose = require('mongoose');
 
 var pClassSchema= new mongoose.Schema({
-    id:{type: Number},
-    title:{type:String},
-    description:{type:String},
-    price:{type:Number},
-    image:{type:String},
-    location:{type:String},
-    user:{type: String},
+  title:{type:String},
+  description:{type:String},
+  hitPoints:{type:Number},
+  staminaPoints:{type:Number},
+  keyAbility:{type:Number},
+  skills:[
+    {skill:{type:String},bonus:{type:Boolean},}
+  ],
+  proficiencies:[
+    {type: mongoose.Schema.ObjectId, ref:'proficiency'},
+  ],
+  features:[
+    {feature:{type:String},level:{type:Number},sp:{type:Boolean},sp:{type:Boolean},}
+  ],
+  spellPerDay:{type:String},
+  bAB:{type:Number},
+  fortSave:{type:Number},
+  refSave:{type:Number},
+  willSave:{type:Number},
+  fortSaveBase:{type:Number},
+  refSaveBase:{type:Number},
+  willSaveBase:{type:Number},
   }, { timestamps: { createdAt: 'created_at', updatedAt:'updated_at'}
 });
 mongoose.model('pClass', pClassSchema);
