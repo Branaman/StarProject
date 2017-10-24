@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var spellSchema= new mongoose.Schema({
-    title:{type:String},
+    title:{type:String,required:true,unique:true,},
     description:{type:String},
     spellSchool:{type: mongoose.Schema.ObjectId, ref:'spellSchool'},
     castingTime:{type:Number},

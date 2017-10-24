@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var characterSchema= new mongoose.Schema({
     // bio
-    name:{type:String},
+    name:{type:String,required:true,},
     description:{type:String},
     level:{type:Number},
     experiencePoints:{type:Number},

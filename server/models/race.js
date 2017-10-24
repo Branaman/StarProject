@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var raceSchema= new mongoose.Schema({
-    title:{type:String},
+    title:{type:String,required:true,unique:true,},
     description:{type:String},
     height:{type:Number},
     weight:{type:Number},

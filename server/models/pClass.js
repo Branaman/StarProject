@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var pClassSchema= new mongoose.Schema({
-  title:{type:String},
+  title:{type:String,required:true,unique:true,},
   description:{type:String},
   hitPoints:{type:Number},
   staminaPoints:{type:Number},

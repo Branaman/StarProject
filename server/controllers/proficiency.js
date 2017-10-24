@@ -1,6 +1,5 @@
-var mongoose = require('mongoose')
-var Proficiency = mongoose.model('proficiency')
-
+var mongoose = require('mongoose');
+var Proficiency = mongoose.model('proficiency');
 module.exports = {
   index: function(req, res){
     Proficiency.find({})

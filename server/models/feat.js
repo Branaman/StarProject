@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var featSchema= new mongoose.Schema({
-    title:{type:String},
+    title:{type:String,required:true,unique:true,},
     description:{type:String},
     prerequisites:[{type: mongoose.Schema.ObjectId, ref:'feat'}],
     combat:{type:Boolean},
